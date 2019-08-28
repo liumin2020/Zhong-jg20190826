@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无限级树形菜单</title>
+</head>
+<script src="../../js/jquery.js"></script>
+<style>
+ul.a{width:100%;cursor:pointer;padding:0 0px;color:white;}
+ul.a li{list-style-type:none;cursor:pointer;background:#fff;padding:5px 10px;color:black;width:90%;display:none}
+.treelist{width:222px;}
+ul.a div{height:34px;width:100%;background:url(jia.jpg) no-repeat;padding-left:27px;padding-top:6px;color:#333333;font-weight:bold;font-size:15px}
+.shows{display:block}
+</style>
+<body>
+  
+<div class="treelist">
+<ul class="a">
+<div>ccccc</div>
+  <li>xxxx</li>
+  <li>
+    <ul class="a">
+    <div>ccccc</div>
+      <li>xxxx</li>
+      <li>xxxx</li>
+      <li>
+        <ul class="a">
+        <div>ccccc</div>
+          <li>
+            <ul class="a">
+              <div>ccccc</div>
+              <li>xxxx</li>
+              <li>xxxx</li>
+              <li>xxxx</li>
+              <li>xxxx</li>
+            </ul>
+          </li>
+          <li>xxxx</li>
+          <li>xxxx</li>
+          <li>xxxx</li>
+        </ul>
+      </li>
+      <li>xxxx</li>
+    </ul>
+  </li>
+  <li>xxxx</li>
+  <li>xxxx</li>
+</ul>
+  
+<ul class="a">
+<div>ccccc</div>
+  <li>xxxx</li>
+  <li>xxxx</li>
+  <li>xxxx</li>
+  <li>xxxx</li>
+</ul>
+  
+<ul class="a">
+<div>ccccc</div>
+  <li>xxxx</li>
+  <li>xxxx</li>
+  <li>xxxx</li>
+  <li>xxxx</li>
+</ul>
+</div>
+  
+  
+  
+<script>
+/*
+$(".a div").each(function(i){
+  var w=$(this).parents("li").width();
+  $(this).css("width",w-100+"px");
+})
+*/
+  
+$(".a").click(function(){
+  $(this).find("li").click(function(event){
+    return false
+  })
+    
+  if($(this).hasClass("shows")){
+    $(this).removeClass("shows");
+    $(this).find("li").find("ul").removeClass("shows");
+    $(this).find("li").hide();
+    $(this).find("div").css("background","url(jia.jpg) no-repeat");
+      
+      
+  }else{
+    $(this).addClass("shows");
+    $(this).find("li").show();
+    $(this).find("li").find("ul").find("li").hide();
+    $(this).show();
+    $(this).find("div").eq(0).css("background","url(jian.jpg) no-repeat"); 
+  }
+    
+})
+</script>
+</body>
+</html>
