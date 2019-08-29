@@ -63,7 +63,28 @@ html,body,div,input,table,p,h1,h2,h3,h4,h5,h6,tr,td,img,ul,li{
   background:hotpink url('../img/glyphicons-halflings.png') no-repeat 166px 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/glyphicons-halflings.png', sizingMethod='scale')";
   background-size:100% 100%;
+  border-radius:50%;
 
+}
+.userInfomation i {
+  margin-left:20%;
+}
+.userInfomation{
+  padding:5% 0;
+  overflow:hidden;
+  border-bottom:1px solid aliceblue;
+  font-size:12px;
+  color:#999;
+  font-weight:200;
+}
+.userInfomationRight{
+  padding-right:2%;
+}
+.userInfomation h6{
+  margin-bottom:5px;
+  font-size:14px;
+  color:#000;
+  font-weight:bolder;
 }
 /* 去除侧边栏左右的边框 */
 .sideNavBar .accordion-group{
