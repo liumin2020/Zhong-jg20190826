@@ -118,6 +118,11 @@ html,body,div,input,table,p,h1,h2,h3,h4,h5,h6,tr,td,img,ul,li{
   background:#fff;
 }
 /*  */
+.tabbable{
+  font-size:14px;
+  font-weight:400;
+  font-family:"microsoft yahei";
+}
 .tabbableBoxPaddingLeft{
   padding-left:1.2%;
 }
