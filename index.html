@@ -207,13 +207,15 @@
 		   function timeStyle(val){
 				   return val<10?"0"+val:val;
 			 }
-			var timeInteral = setInterval(dataTimeShow, 1000);
+			 dataTimeShow();
+			var timeInteral = setInterval(dataTimeShow, 10);
 			function dataTimeShow() {
 				clearInterval(timeInteral);
 				var dataTime = new Date;
 				var year = dataTime.getFullYear();
 				var month = dataTime.getMonth() + 1;
 				var data = dataTime.getDate();
+			
 				$('#myDateTimeShow').html(year + '年' + month + "月" + data + "日");
 
 
