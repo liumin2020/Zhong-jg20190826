@@ -117,6 +117,27 @@
   .form-horizontal {
     margin: 0;
   }
+
+  .modal-backdrop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 12px;
+    font-weight: 200;
+    font-family: "microsoft yahei";
+    background: transparent;
+    border-radius: 5px;
+
+  }
+
+  .modal-body table {
+    font-size: 12px;
+    font-weight: 200;
+    font-family: "microsoft yahei";
+  }
 </style>
 
 <body>
@@ -189,7 +210,7 @@
             <table class="table table-bordered table-condensed table-striped table-hover" align="center">
               <thead>
                 <tr>
-                  <th style="text-align:center;vertical-align:middle;">顺序</th>
+                  <th>顺序</th>
                   <th>用户编码</th>
                   <th>用户名</th>
                   <th>角色</th>
@@ -245,150 +266,204 @@
         </div>
       </div>
     </div>
+    <!-- 点击查看按钮展示详细信息表格 -->
+
+    <!-- Modal -->
+
+    <div id="myModal" class="modal hide " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">详细信息</h3>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered table-condensed table-striped table-hover" align="center">
+          <thead>
+            <tr>
+              <th>用户编码</th>
+              <th>用户名</th>
+              <th>角色</th>
+              <th>机构</th>
+              <th>部门</th>
+              <th>状态</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+      </div>
+    </div>
 
 
-  </div>
-  <!-- /   tableMenusPageCanna -->
+
+    <!-- /  点击查看按钮展示详细信息表格 -->
+
+    <!-- /   tableMenusPageCanna -->
 
 
-  <script src="../../js/jquery.js"></script>
-  <script src="../../js/bootstrap.min.js"></script>
-  <script>
-    $(function () {
-      //  动态生成表格
-      var datas = [{
-          orderNum: '1',
-          userCode: "f9013",
-          userName: "进出口监事会",
-          role: "部门发布员",
-          organization: "总会",
-          department: "进出口银行监事会办公室",
-          status: "启用"
-        },
-        {
-          orderNum: '2',
-          userCode: "s9013",
-          userName: "资金部",
-          role: "部门发布员",
-          organization: "总会",
-          department: "资金部",
-          status: "启用"
-        },
-        {
-          orderNum: '3',
-          userCode: "s4013",
-          userName: "财险部",
-          role: "部门发布员",
-          organization: "总会",
-          department: "财险部",
-          status: "启用"
-        },
-        {
-          orderNum: '4',
-          userCode: "l0522",
-          userName: "公司治理部",
-          role: "部门发布员",
-          organization: "总会",
-          department: "公司治理部",
-          status: "启用"
-        },
-        {
-          orderNum: '5',
-          userCode: "sf1111",
-          userName: "统信部",
-          role: "部门发布员",
-          organization: "总会",
-          department: "统信部",
-          status: "启用"
-        },
-        {
-          orderNum: '6',
-          userCode: "zml211",
-          userName: "农发行监事部",
-          role: "部门发布员",
-          organization: "总会",
-          department: "农发行监事部办公室",
-          status: "启用"
-        },
-        {
-          orderNum: '7',
-          userCode: "yH78",
-          userName: "管委会",
-          role: "部门发布员",
-          organization: "总会",
-          department: "管委会",
-          status: "启用"
-        },
-        {
-          orderNum: '8',
-          userCode: "ffss901",
-          userName: "中介部",
-          role: "部门发布员",
-          organization: "总会",
-          department: "中介部",
-          status: "启用"
-        },
-        {
-          orderNum: '9',
-          userCode: "lssf101",
-          userName: "风险处理局",
-          role: "部门发布员",
-          organization: "总会",
-          department: "风险处理局",
-          status: "启用"
-        },
-        {
-          orderNum: '10',
-          userCode: "s0511",
-          userName: "党委巡视办",
-          role: "部门发布员",
-          organization: "总会",
-          department: "党委巡视办",
-          status: "启用"
-        },
-        {
-          orderNum: '11',
-          userCode: "sh1021",
-          userName: "办公厅",
-          role: "部门发布员",
-          organization: "总会",
-          department: "办公厅",
-          status: "启用"
-        }
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script>
+      $(function () {
+        //  动态生成表格
+        var datas = [{
+            orderNum: '1',
+            userCode: "f9013",
+            userName: "进出口监事会",
+            role: "部门发布员",
+            organization: "总会",
+            department: "进出口银行监事会办公室",
+            status: "启用"
+          },
+          {
+            orderNum: '2',
+            userCode: "s9013",
+            userName: "资金部",
+            role: "部门发布员",
+            organization: "总会",
+            department: "资金部",
+            status: "启用"
+          },
+          {
+            orderNum: '3',
+            userCode: "s4013",
+            userName: "财险部",
+            role: "部门发布员",
+            organization: "总会",
+            department: "财险部",
+            status: "启用"
+          },
+          {
+            orderNum: '4',
+            userCode: "l0522",
+            userName: "公司治理部",
+            role: "部门发布员",
+            organization: "总会",
+            department: "公司治理部",
+            status: "启用"
+          },
+          {
+            orderNum: '5',
+            userCode: "sf1111",
+            userName: "统信部",
+            role: "部门发布员",
+            organization: "总会",
+            department: "统信部",
+            status: "启用"
+          },
+          {
+            orderNum: '6',
+            userCode: "zml211",
+            userName: "农发行监事部",
+            role: "部门发布员",
+            organization: "总会",
+            department: "农发行监事部办公室",
+            status: "启用"
+          },
+          {
+            orderNum: '7',
+            userCode: "yH78",
+            userName: "管委会",
+            role: "部门发布员",
+            organization: "总会",
+            department: "管委会",
+            status: "启用"
+          },
+          {
+            orderNum: '8',
+            userCode: "ffss901",
+            userName: "中介部",
+            role: "部门发布员",
+            organization: "总会",
+            department: "中介部",
+            status: "启用"
+          },
+          {
+            orderNum: '9',
+            userCode: "lssf101",
+            userName: "风险处理局",
+            role: "部门发布员",
+            organization: "总会",
+            department: "风险处理局",
+            status: "启用"
+          },
+          {
+            orderNum: '10',
+            userCode: "s0511",
+            userName: "党委巡视办",
+            role: "部门发布员",
+            organization: "总会",
+            department: "党委巡视办",
+            status: "启用"
+          },
+          {
+            orderNum: '11',
+            userCode: "sh1021",
+            userName: "办公厅",
+            role: "部门发布员",
+            organization: "总会",
+            department: "办公厅",
+            status: "启用"
+          }
 
-      ];
+        ];
 
-      function tableInfoShow() {
-        for (var i = 0; i < datas.length; i++) {
-          var o = datas[i];
-          var $tr = $("<tr></tr>");
-          $tr.appendTo('tbody');
-          $('<td></td>').text(o.orderNum).appendTo($tr);
-          $('<td></td>').text(o.userCode).appendTo($tr);
-          $('<td></td>').text(o.userName).appendTo($tr);
-          $('<td></td>').text(o.role).appendTo($tr);
-          $('<td></td>').text(o.organization).appendTo($tr);
-          $('<td></td>').text(o.department).appendTo($tr);
-          $('<td></td>').text(o.status).appendTo($tr);
-          $(`<td>
-                    <a href="#" class="seeDetail" >查看</a> |
+        function tableInfoShow() {
+          for (var i = 0; i < datas.length; i++) {
+            var o = datas[i];
+            var $tr = $("<tr></tr>");
+            $tr.appendTo('.tableDateListInformation tbody');
+            $('<td></td>').text(o.orderNum).appendTo($tr);
+            $('<td></td>').text(o.userCode).appendTo($tr);
+            $('<td></td>').text(o.userName).appendTo($tr);
+            $('<td></td>').text(o.role).appendTo($tr);
+            $('<td></td>').text(o.organization).appendTo($tr);
+            $('<td></td>').text(o.department).appendTo($tr);
+            $('<td></td>').text(o.status).appendTo($tr);
+            $(`<td>
+                    <a  class="seeDetail" href="#myModal" role="button" class="btn" data-toggle="modal" >查看</a> |
                     <a href="#" class="edit">编辑</a> |
                     <a href="#" class="del">删除</a> |
                     <a href="#" class="getRole">分配角色</a> |
                     <a href="#" class="getPro">分配项目</a> |
                     <a href="#" class="resetAgain">重置</a>
                   </td>`).appendTo($tr);
-        }
-      };
-      tableInfoShow();
-       //  end --动态生成表格 
-      //  查看按钮
-      $('.seeDetail').click(function(){
+          }
+        };
+        tableInfoShow();
+        //  end --动态生成表格 
 
+        //  查看按钮
+        $('.seeDetail').click(function () {
+          $('.modal-body tbody').html('');
+          var userCodeSee = $(this).parent().prev().prev().prev().prev().prev().prev().html();
+          var userNameSee = $(this).parent().prev().prev().prev().prev().prev().html();
+          var roleSee = $(this).parent().prev().prev().prev().prev().html();
+          var organizationSee = $(this).parent().prev().prev().prev().html();
+          var departmentSee = $(this).parent().prev().prev().html();
+          var statusSee = $(this).parent().prev().html();
+          var $tr = $("<tr></tr>");
+          $tr.appendTo('.modal-body tbody');
+          $("<td></td>").text(userCodeSee).appendTo($tr);
+          $("<td></td>").text(userNameSee).appendTo($tr);
+          $("<td></td>").text(roleSee).appendTo($tr);
+          $("<td></td>").text(organizationSee).appendTo($tr);
+          $("<td></td>").text(departmentSee).appendTo($tr);
+          $("<td></td>").text(statusSee).appendTo($tr);
+        });
+        //  end  --查看按钮
+
+        //点击删除按钮
+        $('.del').click(function () {
+          var isOk = confirm('您确定要删除吗？');
+          if (isOk) {
+            $(this).parent().parent().remove();
+          }
+        });
+        // end --点击删除按钮
       });
-      //  end  --查看按钮
-    });
-  </script>
+    </script>
 
 </body>
 
