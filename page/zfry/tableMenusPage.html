@@ -614,23 +614,24 @@
 
           //声明一个随机数变量，默认为1
           var GetRandomn = 1;
+          console.log(datas);
           var timestamp = new Date().getTime();
           GetRandomn = Math.floor(Math.random() * 100 + timestamp + 1);
           var strCode = 'ls' + GetRandomn;
 
           var newUserInforObj = {};
-          newUserInforObj.orderNum =len+1+'';
+          len++;
+          newUserInforObj.orderNum =len+'';
           newUserInforObj.userCode = strCode;
           newUserInforObj.userName = newUserNameVal;
           newUserInforObj.role = newUserRoleVal;
           newUserInforObj.organization = newUserOrganizationVal;
           newUserInforObj.department = newUserDepartmentVal;
           newUserInforObj.status = newUserStatusVal;
+          datas=[];
           datas.push(newUserInforObj);
-          
-          newUserInforObj = {};
           tableInfoShow();
-          console.log(len);
+          newUserInforObj = {};
           $('#addNewUserModal #inputAddUserName').val('');
           $('#addNewUserModal #inputAddRole').val('');
           $('#addNewUserModal #inputAddOrganization').val('');
