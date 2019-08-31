@@ -523,6 +523,7 @@
           }
 
         ];
+        var len=datas.length;
 
         function tableInfoShow() {
           for (var i = 0; i < datas.length; i++) {
@@ -618,7 +619,7 @@
           var strCode = 'ls' + GetRandomn;
 
           var newUserInforObj = {};
-          newUserInforObj.orderNum = '22';
+          newUserInforObj.orderNum =len+1+'';
           newUserInforObj.userCode = strCode;
           newUserInforObj.userName = newUserNameVal;
           newUserInforObj.role = newUserRoleVal;
@@ -626,14 +627,16 @@
           newUserInforObj.department = newUserDepartmentVal;
           newUserInforObj.status = newUserStatusVal;
           datas.push(newUserInforObj);
+          
           newUserInforObj = {};
           tableInfoShow();
+          console.log(len);
           $('#addNewUserModal #inputAddUserName').val('');
           $('#addNewUserModal #inputAddRole').val('');
           $('#addNewUserModal #inputAddOrganization').val('');
           $('#addNewUserModal #inputAddDepartment').val('');
           $('#addNewUserModal #inputAddStatus').val('');
-
+        
         });
 
         /* end --新建用户 */
