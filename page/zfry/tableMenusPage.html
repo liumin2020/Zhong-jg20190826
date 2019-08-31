@@ -138,17 +138,20 @@
     font-weight: 200;
     font-family: "microsoft yahei";
   }
-  #editMyModal label,#editMyModal input {
-    padding:11px;
-    font-size:12px;
-    font-weight:200;
-    font-family:"microsoft yahei";
+
+  #editMyModal label,
+  #editMyModal input {
+    padding: 11px;
+    font-size: 12px;
+    font-weight: 200;
+    font-family: "microsoft yahei";
   }
-  #editMyModal label{
-    padding-left:20%;
-    width:45px;
-    margin-right:0;
-    text-align:center;
+
+  #editMyModal label {
+    padding-left: 20%;
+    width: 45px;
+    margin-right: 0;
+    text-align: center;
   }
 </style>
 
@@ -352,7 +355,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true" id="surEditBtn">确定</button>
-        <button class="btn"  data-dismiss="modal" aria-hidden="true">取消</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
       </div>
 
     </div>
@@ -481,7 +484,7 @@
             $('<td></td>').text(o.status).appendTo($tr);
             $(`<td>
                     <a  class="seeDetail" href="#myModal" role="button" class="btn" data-toggle="modal" >查看</a> |
-                    <a class="edit" href="#editMyModal" role="button" class="btn" data-toggle="modal" data-id="${o.orderNum}">编辑</a> |
+                    <a class="edit" href="#editMyModal" role="button" class="btn" data-toggle="modal" data-id=${o.orderNum}>编辑</a> |
                     <a href="#" class="del">删除</a> |
                     <a href="#" class="getRole">分配角色</a> |
                     <a href="#" class="getPro">分配项目</a> |
@@ -514,6 +517,8 @@
 
         //点击编辑按钮
         $('.edit').click(function () {
+          var id = $(this).attr('data-id');
+          var $that = $(this);
           var userNameEdit = $(this).parent().prev().prev().prev().prev().prev().html();
           var roleEdit = $(this).parent().prev().prev().prev().prev().html();
           var organizationEdit = $(this).parent().prev().prev().prev().html();
@@ -524,13 +529,25 @@
           $('#editMyModal #inputOrganization').val(organizationEdit);
           $('#editMyModal #inputDepartment').val(departmentEdit);
           $('#editMyModal #inputStatus').val(statusEdit);
-          $('#editMyModal #surEditBtn').click(function(){
-            var id = $('.tableDateListInformation .edit').attr('data-id');
-             alert(id);
+
+          $('#editMyModal #surEditBtn').click(function () {
+            console.log(id);
+            var inputUserNameSur = $('#editMyModal #inputUserName').val();
+            var inputRoleSur = $('#editMyModal #inputRole').val();
+            var inputOrganizationSur = $('#editMyModal #inputOrganization').val();
+            var inputDepartmentSur = $('#editMyModal #inputDepartment').val();
+            var inputStatusSur = $('#editMyModal #inputStatus').val();
+            $that.parent().prev().prev().prev().prev().prev().text(inputUserNameSur);
+            $that.parent().prev().prev().prev().prev().text(inputRoleSur);
+            $that.parent().prev().prev().prev().text(inputOrganizationSur);
+            $that.parent().prev().prev().text(inputDepartmentSur);
+            $that.parent().prev().text(inputStatusSur);
+
           })
 
         });
-        
+
+
         // end  --点击编辑按钮
 
         //点击删除按钮
