@@ -539,7 +539,7 @@
             $(`<td>
                     <a  class="seeDetail" href="#myModal" role="button" class="btn" data-toggle="modal" >查看</a> |
                     <a class="edit" href="#editMyModal" role="button" class="btn" data-toggle="modal" data-id=${o.orderNum}>编辑</a> |
-                    <a href="#" class="del">删除</a> |
+                    <a href="#" class="del" data-id=${o.orderNum}>删除</a> |
                     <a href="#" class="getRole">分配角色</a> |
                     <a href="#" class="getPro">分配项目</a> |
                     <a href="#" class="resetAgain">重置</a>
@@ -641,9 +641,12 @@
 
         //点击删除按钮
         $('.del').click(function () {
+           var id=$(this).attr('data-id');
+           console.log(id);
           var isOk = confirm('您确定要删除吗？');
           if (isOk) {
             $(this).parent().parent().remove();
+            
           }
         });
         // end --点击删除按钮
