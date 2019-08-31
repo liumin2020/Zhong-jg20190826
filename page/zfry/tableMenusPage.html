@@ -610,9 +610,16 @@
           var newUserOrganizationVal = $('#addNewUserModal #inputAddOrganization').val();
           var newUserDepartmentVal = $('#addNewUserModal #inputAddDepartment').val();
           var newUserStatusVal = $('#addNewUserModal #inputAddStatus').val();
+
+          //声明一个随机数变量，默认为1
+          var GetRandomn = 1;
+          var timestamp = new Date().getTime();
+          GetRandomn = Math.floor(Math.random() * 100 + timestamp + 1);
+          var strCode = 'ls' + GetRandomn;
+
           var newUserInforObj = {};
-          newUserInforObj.orderNum = datas.lenth - 0 + 1 + '';
-          newUserInforObj.userCode = "s055";
+          newUserInforObj.orderNum = '22';
+          newUserInforObj.userCode = strCode;
           newUserInforObj.userName = newUserNameVal;
           newUserInforObj.role = newUserRoleVal;
           newUserInforObj.organization = newUserOrganizationVal;
