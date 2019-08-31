@@ -611,7 +611,7 @@
           var newUserDepartmentVal = $('#addNewUserModal #inputAddDepartment').val();
           var newUserStatusVal = $('#addNewUserModal #inputAddStatus').val();
           var newUserInforObj = {};
-          newUserInforObj.orderNum = datas.lenth + 1;
+          newUserInforObj.orderNum = datas.lenth - 0 + 1 + '';
           newUserInforObj.userCode = "s055";
           newUserInforObj.userName = newUserNameVal;
           newUserInforObj.role = newUserRoleVal;
@@ -621,7 +621,12 @@
           datas.push(newUserInforObj);
           newUserInforObj = {};
           tableInfoShow();
-        
+          $('#addNewUserModal #inputAddUserName').val('');
+          $('#addNewUserModal #inputAddRole').val('');
+          $('#addNewUserModal #inputAddOrganization').val('');
+          $('#addNewUserModal #inputAddDepartment').val('');
+          $('#addNewUserModal #inputAddStatus').val('');
+
         });
 
         /* end --新建用户 */
